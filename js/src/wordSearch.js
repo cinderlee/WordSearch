@@ -15,7 +15,7 @@ class WordSearch{
         for (let row = 0 ; row < this.boardSize ; row++){
             const rowArray = [];
             for (let col = 0; col < this.boardSize; col++){
-                rowArray.push('-')
+                rowArray.push('-');
             }
             this.board.push(rowArray);
         }
@@ -39,9 +39,9 @@ class WordSearch{
         let count = 0;
         for (const word of this.wordBank){
             s += word + "\t";
-            count += 1
+            count += 1;
             if (count % 4 === 0){
-                s += "\n"
+                s += "\n";
             }
         }
         return s;
@@ -89,9 +89,9 @@ class WordSearch{
             if (this.checkAddPossible(row, col, upperWord, rDisp, cDisp)){
                 this.addWordLetters(row, col, upperWord, rDisp, cDisp);
                 if (reverse){
-                    this.wordBank.push(this.reverse(upperWord))
+                    this.wordBank.push(this.reverse(upperWord));
                 } else {
-                    this.wordBank.push(upperWord)
+                    this.wordBank.push(upperWord);
                 }
                 return true;
             }
@@ -100,10 +100,10 @@ class WordSearch{
     }
 
     addWordInDirection(rowNum, colNum, word, direction){
-        const wordForm = [word, this.reverse(word)]
-        const wordDir = Math.floor(Math.random() * 2)
-        let rDisp = 1 
-        let cDisp = 1
+        const wordForm = [word, this.reverse(word)];
+        const wordDir = Math.floor(Math.random() * 2);
+        let rDisp = 1; 
+        let cDisp = 1;
         let r = rowNum;
         let c = colNum;
         if (direction === 'H'){
@@ -119,9 +119,9 @@ class WordSearch{
 
         while (r <= rowNum && c <= colNum){
             if (this.addWordToBoard(r, c, wordForm[wordDir], rDisp, cDisp, wordDir)){
-                return true
+                return true;
             } else {
-                const otherIndex = wordDir === 1 ? 0 : 1
+                const otherIndex = wordDir === 1 ? 0 : 1;
                 if (this.addWordToBoard(r, c, wordForm[otherIndex], rDisp, cDisp, !wordDir)){
                     return true;
                 }
@@ -141,9 +141,9 @@ class WordSearch{
             while (tracker.includes(index)){
                 index = Math.floor(Math.random() * this.wordsPossible.length);
             }
-            let rowNum = Math.floor(Math.random() * this.boardSize);
-            let colNum = Math.floor(Math.random() * this.boardSize);
-            const word = this.wordsPossible[index]
+            const rowNum = Math.floor(Math.random() * this.boardSize);
+            const colNum = Math.floor(Math.random() * this.boardSize);
+            const word = this.wordsPossible[index];
 
             const direction = ['H', 'V', 'D'];
             let firstDir, secondDir, lastDir; 
@@ -164,7 +164,7 @@ class WordSearch{
             } else if (this.addWordInDirection(rowNum, colNum, word, secondDir)){
                 tracker.push(index);
             } else if (this.addWordInDirection(rowNum, colNum, word, lastDir)){
-                tracker.push(index)
+                tracker.push(index);
             }
         }
     }
@@ -180,9 +180,9 @@ fs.readFile('./words_full.txt', 'utf8', function(err,data){
 		console.log("Uh Oh! Where's the file?\n", err);
 	}
 	else{
-        const arr = data.split('\r\n')
+        const arr = data.split('\r\n');
         const ws = new WordSearch(arr, 20);
         ws.fill();
-        console.log(ws.toString())
+        console.log(ws.toString());
 	}
 });
