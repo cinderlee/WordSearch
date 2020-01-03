@@ -1,0 +1,119 @@
+body{
+	font-family: 'Architects Daughter';
+	text-align: center;
+	background-color: #b3d9ff;
+}
+
+.game, .reset, .error-message, .animate{
+	display: none;
+}
+
+.error-message{
+	position: absolute;
+	left: 45%;
+	bottom: 10%;
+	color: red;
+	font-size: 20px;
+}
+
+.animate, .reset{
+	position: absolute;
+	left: 40%;
+	top: 20%;
+}
+
+.startBoard {
+	position: absolute;
+	left: 20%
+}
+
+.goalBoard{
+	position: absolute;
+	right: 20%
+}
+
+.animateBoard{
+	position: relative;
+}
+
+.solveBtn{
+	position: absolute;
+	bottom: 20%;
+	left: 46%
+}
+
+.animateBtn, .resetBtn{
+	position: absolute;
+	left: 100px;
+	top: 400px;
+}
+
+.startBoard > div, .goalBoard > div{
+	display:inline-block;
+	width: 100px;
+	height: 100px;
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	background-color: #6666ff;
+}
+
+.animateBox{
+	display:inline-block;
+	width: 100px;
+	height: 100px;
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+	background-color: #6666ff;
+	font-size: 75px;
+	text-align: center;
+	vertical-align: middle;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+}
+
+div > input {
+	width: 80px;
+	height: 80px;
+	font-family: 'Architects Daughter';
+	font-size: 75px;
+	text-align: center;
+	position: relative;
+	top: 9px;
+}
+
+.animateCard {
+	width: 80px;
+	height: 80px;
+	font-family: 'Architects Daughter';
+	font-size: 75px;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+	top: 9px;
+	left: 9px;
+}
+
+table{
+	position: relative;
+	left: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+button{
+	padding: 10px; 
+	border-radius: 10px; 
+	font-size: 20px; 
+	background-color: #d1b3ff;
+	font-family: 'Architects Daughter'
+}
+
+button:hover{
+	cursor: pointer;
+}

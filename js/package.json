@@ -1,0 +1,28 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "A web version animating how to solve the 8-tile game given a start and end goal.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cindylee0113/AI/tree/master/Project%201:%20A*%20Search/js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-mocha": "^6.2.2",
+    "mocha": "^6.2.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "save-dev": "0.0.1-security"
+  }
+}
