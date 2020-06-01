@@ -1,6 +1,3 @@
-const fs = require('fs');
-
-
 class WordSearch{
     constructor(wordsFull, boardSize = 10){
         this.wordsFull = wordsFull;
@@ -108,16 +105,11 @@ class WordSearch{
         let c = colNum;
         if (direction === 'H'){
             rDisp = 0;
-            c = colNum - word.length >= 0 ? colNum - word.length: 0;
         } else if (direction === 'V'){
             cDisp = 0;
-            r = rowNum - word.length >= 0 ? rowNum - word.length : 0;
-        } else{
-            r = rowNum - word.length >= 0 ? rowNum - word.length : 0;
-            c = colNum - word.length >= 0 ? colNum - word.length: 0;
         }
 
-        while (r <= rowNum && c <= colNum){
+        while (r >= Math.floor(rowNum / 2) && c >= Math.floor(colNum / 2)){
             if (this.addWordToBoard(r, c, wordForm[wordDir], rDisp, cDisp, wordDir)){
                 return true;
             } else {
@@ -126,8 +118,8 @@ class WordSearch{
                     return true;
                 }
             }
-            r += rDisp;
-            c += cDisp;
+            r -= rDisp;
+            c -= cDisp;
         }
 
         return false;
@@ -135,7 +127,7 @@ class WordSearch{
 
     addWords(){
         const tracker = [];
-        while (this.wordBank.length < this.boardSize) {
+        while (this.wordBank.length < Math.floor(this.boardSize * 0.75)) {
             
             let index = Math.floor(Math.random() * this.wordsPossible.length);
             while (tracker.includes(index)){
@@ -175,14 +167,6 @@ class WordSearch{
     }
 }
 
-fs.readFile('./words_full.txt', 'utf8', function(err,data){
-	if(err){
-		console.log("Uh Oh! Where's the file?\n", err);
-	}
-	else{
-        const arr = data.split('\r\n');
-        const ws = new WordSearch(arr, 20);
-        ws.fill();
-        console.log(ws.toString());
-	}
-});
+module.exports = {
+	WordSearch
+};
